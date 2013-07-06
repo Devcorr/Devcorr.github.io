@@ -49,6 +49,10 @@ Vagrant.configure("2") do |config|
   # information on available options.
 
   # Enable provisioning with Ansible
+  config.vm.provision :ansible do |ansible|
+    ansible.playbook = "ansible/site.yml"
+    ansible.inventory_file = "ansible/local"
+  end
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
