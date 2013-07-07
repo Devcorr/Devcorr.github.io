@@ -2,3 +2,4 @@
 /.idea
 *.swp
 .DS_Store
+.vagrant
