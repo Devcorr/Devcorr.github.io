@@ -7,5 +7,19 @@
     - thanna
   sudo: yes
 
+- name: create .ssh directories
+  file: path=/home/{{ item }}/.ssh state=directory owner={{ item }} group={{ item }} mode=0600
+  with_items:
+    - mbargar
+  sudo: yes
+
+- name: setup ssh authorized_keys files
+  copy: src={{ item }}Key.pub dest=/home/{{ item }}/.ssh/authorized_keys 
+        group={{ item }} owner={{ item }} mode=0600
+  with_items:
+    - mbargar
+  sudo: yes
+
 - name: remove default accounts
   user: name=pi state=absent remove=yes
+  sudo: yes
