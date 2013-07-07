@@ -1,24 +1,17 @@
 - name: setup user accounts
   user: name={{ item }} state=present
+  sudo: yes
   with_items:
     - corr
     - mbargar
     - jmadich
     - thanna
-  sudo: yes
 
-- name: create .ssh directories
-  file: path=/home/{{ item }}/.ssh state=directory owner={{ item }} group={{ item }} mode=0600
+- name: setup authorized_keys file for users
+  authorized_key: user={{ item }} key="{{ lookup('file', item + 'Key.pub') }}"
+  sudo: yes
   with_items:
     - mbargar
-  sudo: yes
-
-- name: setup ssh authorized_keys files
-  copy: src={{ item }}Key.pub dest=/home/{{ item }}/.ssh/authorized_keys 
-        group={{ item }} owner={{ item }} mode=0600
-  with_items:
-    - mbargar
-  sudo: yes
 
 - name: remove default accounts
   user: name=pi state=absent remove=yes
