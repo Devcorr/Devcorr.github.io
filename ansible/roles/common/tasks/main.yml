@@ -1,0 +1,11 @@
+- name: setup user accounts
+  user: name={{ item }} state=present
+  with_items:
+    - corr
+    - mbargar
+    - jmadich
+    - thanna
+  sudo: yes
+
+- name: remove default accounts
+  user: name=pi state=absent remove=yes

@@ -1,0 +1,7 @@
+- name: Install nginx
+  apt: pkg=nginx state=latest update_cache=yes
+  sudo: yes
+
+- name: ensure nginx is running
+  service: name=nginx state=started
+  sudo: yes
