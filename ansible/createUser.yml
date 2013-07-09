@@ -1,0 +1,20 @@
+- hosts: all
+  sudo: yes
+  vars_prompt:
+    - name: "username"
+      prompt: "Enter username"
+
+    - name: "password"
+      prompt: "Enter user's password"
+      private: yes
+      confirm: yes
+      encrypt: sha512_crypt
+
+  tasks:
+    - name: setup user account
+      user: name={{ username }} state=present password={{ password }}
+
+    - name: setup authorized_keys file for users
+      authorized_key: user={{ username }} 
+                      key="{{ lookup('file', 'roles/common/files/' + username + 'Key.pub') }}"
+
