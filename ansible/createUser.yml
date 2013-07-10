@@ -1,3 +1,4 @@
+---
 - hosts: all
   sudo: yes
   vars_prompt:
@@ -14,7 +15,9 @@
     - name: setup user account
       user: name={{ username }} state=present password={{ password }}
 
-    - name: setup authorized_keys file for users
-      authorized_key: user={{ username }} 
-                      key="{{ lookup('file', 'roles/common/files/' + username + 'Key.pub') }}"
+    # new users public keys must be committed to git.
+	- name: setup authorized_keys file for users
+  	  authorized_key: user={{ username }} 
+    	key="{{ lookup('file', 'roles/common/files/' + username + 'Key.pub') }}"
+  
 
