@@ -50,7 +50,7 @@ Vagrant.configure("2") do |config|
 
   # Enable provisioning with Ansible
   config.vm.provision :ansible do |ansible|
-    ansible.playbook = "ansible/site.yml"
+    ansible.playbook = "ansible/vagrant.yml"
     ansible.inventory_file = "ansible/local"
   end
 

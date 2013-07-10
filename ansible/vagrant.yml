@@ -1,0 +1,10 @@
+- include: site.yml
+
+- hosts: webservers
+  sudo: yes
+  tasks:
+    - name: Remove normal web root
+      file: path=/data/www state=absent
+    - name: Symlink /vagrant to web root
+      file: path=/data/www src=/vagrant/www state=link
+
