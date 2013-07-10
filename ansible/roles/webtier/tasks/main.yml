@@ -6,6 +6,30 @@
   apt: pkg=nginx state=latest update_cache=yes
   sudo: yes
 
-- name: ensure nginx is running
-  service: name=nginx state=started
+- name: ensure nginx is stopped
+  service: name=nginx state=stopped
   sudo: yes
+
+- name: Disable default site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+  sudo: yes
+
+- name: Remove default site
+  file: path=/etc/nginx/sites-available/default state=absent
+  sudo: yes
+
+- name: Copy nginx global config
+  copy: src=nginx/nginx.conf dest=/etc/nginx/nginx.conf backup=yes
+  sudo: yes
+  notify: 
+    - restart nginx
+
+- name: Update devcorr.com nginx server config
+  copy: src=nginx/devcorrdotcom dest=/etc/nginx/sites-available
+  sudo: yes
+
+- name: Enable devcorr.com site
+  file: path=/etc/nginx/sites-enabled/devcorrdotcom src=/etc/nginx/sites-available/devcorrdotcom state=link
+  sudo: yes
+  notify: 
+    - restart nginx
