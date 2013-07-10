@@ -1,0 +1,4 @@
+---
+- name: sudoers setup
+  sudo: yes
+  template: src=sudoers dest=/tmp/sudoers validate='visudo -cf %s'
