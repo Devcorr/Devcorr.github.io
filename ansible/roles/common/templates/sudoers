@@ -9,6 +9,10 @@
 Defaults        env_reset
 Defaults        mail_badpass
 Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+# TODO: This is a temporary fix to give the vagrant user sudo access. We need
+# to come up with a more elegant solution that will not give a group NOPASSWD
+# on prod boxes.
+Defaults        exempt_group=admin
 
 # Host alias specification
 
@@ -18,6 +22,11 @@ Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/
 
 # User privilege specification
 root    ALL=(ALL:ALL) ALL
+
+# TODO: This is a temporary fix to give the vagrant user sudo access. We need
+# to come up with a more elegant solution that will not give a group NOPASSWD
+# on prod boxes.
+%admin ALL=(ALL) NOPASSWD:ALL
 
 # Allow members of group sudo to execute any command
 %sudo   ALL=(ALL:ALL) ALL
