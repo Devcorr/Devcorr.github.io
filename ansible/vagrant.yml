@@ -1,8 +1,9 @@
 - include: site.yml
   vars:
-    local: true
+    usingVagrant: true
 
 - hosts: webservers
+  name: vagrant specific setup
   sudo: yes
   tasks:
     - name: Create data directory
