@@ -1748,5 +1748,12 @@ color: {Color:Accent};
 <script src="//platform.linkedin.com/in.js" type="text/javascript">
     lang: en_US
 </script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".IN-widget").click(function() {
+            _gaq.push(['_trackSocial', 'LinkedIn', 'Follow', document.title]);
+        });
+    });
+</script>
 </body>
 </html>
