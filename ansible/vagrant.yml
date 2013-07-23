@@ -1,10 +1,13 @@
 - include: site.yml
+  vars:
+    local: true
 
 - hosts: webservers
   sudo: yes
   tasks:
-    - name: Remove normal web root
-      file: path=/data/www state=absent
+    - name: Create data directory
+      file: path=/data state=directory
+      sudo: yes
     - name: Symlink /vagrant to web root
       file: path=/data/www src=/vagrant/www state=link
 

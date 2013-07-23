@@ -1,6 +1,7 @@
 - name: Create web root
   file: path=/data/www state=directory
   sudo: yes
+  when: local is not defined
 
 - name: Install nginx
   apt: pkg=nginx state=latest update_cache=yes
