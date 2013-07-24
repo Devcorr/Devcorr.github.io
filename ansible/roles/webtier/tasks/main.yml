@@ -1,5 +1,28 @@
-- name: Create web root
+- name: Make sure web root directory is present
   file: path=/data/www state=directory
+  sudo: yes
+  when: usingVagrant is not defined
+
+- name: Clean web root
+  file: path=/data/www state=absent
+  sudo: yes
+  when: usingVagrant is not defined
+
+# sshUser needs to be provided at the command line, it should match the value of the -u argument.
+# We should be able to remove this variable once we're running ansible from a central server
+# where the local username matches the remote username.
+- name: recursively copy web assets from management server to target
+  sudo: no
+  local_action: command rsync -a ../www {{ sshUser }}@{{ inventory_hostname }}:/tmp
+  when: usingVagrant is not defined
+
+- name: copy web assets from tmp into web root
+  sudo: yes
+  command: cp -r /tmp/www /data
+  when: usingVagrant is not defined
+
+- name: clean web assets out of tmp
+  file: path=/tmp/www state=absent
   sudo: yes
   when: usingVagrant is not defined
 
