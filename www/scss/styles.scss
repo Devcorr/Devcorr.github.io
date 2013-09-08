@@ -1,2 +1,12 @@
 @import "normalize";
 @import "foundation";
+
+.top-bar {
+  &.expanded {
+    background: $topbar-dropdown-bg;
+  }
+}
+
+h1 {
+  line-height: 1.6;
+}

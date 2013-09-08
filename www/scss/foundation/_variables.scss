@@ -212,8 +212,8 @@ $total-columns: 16;
 // Style anchors
 
 // $anchor-text-decoration: none;
-// $anchor-font-color: $primary-color;
-// $anchor-font-color-hover: darken($primary-color, 5%);
+$anchor-font-color: #222222;
+$anchor-font-color-hover: $primary-color;
 
 // Style the <hr> element
 
@@ -1234,11 +1234,11 @@ $total-columns: 16;
 
 // Background color for the top bar
 
-// $topbar-bg: #111;
+$topbar-bg: #f2f2f2;
 
 // Height and margin
 
-// $topbar-height: 45px;
+$topbar-height: 88px;
 // $topbar-margin-bottom: emCalc(30);
 
 // Control Input height for top bar
@@ -1252,7 +1252,7 @@ $total-columns: 16;
 
 // Style the top bar dropdown elements
 
-// $topbar-dropdown-bg: #222;
+$topbar-dropdown-bg: #f2f2f2;
 // $topbar-dropdown-link-color: #fff;
 // $topbar-dropdown-link-bg: lighten($topbar-bg, 5%);
 // $topbar-dropdown-toggle-size: 5px;
@@ -1261,12 +1261,12 @@ $total-columns: 16;
 
 // Set the link colors and styles for top-level nav
 
-// $topbar-link-color: #fff;
-// $topbar-link-color-hover: #fff;
-// $topbar-link-color-active: #fff;
+$topbar-link-color: $anchor-font-color;
+$topbar-link-color-hover: $anchor-font-color-hover;
+$topbar-link-color-active: $anchor-font-color;
 // $topbar-link-weight: bold;
 // $topbar-link-font-size: emCalc(13);
-// $topbar-link-hover-lightness: -30%; // Darken by 30%
+// $topbar-link-hover-lightness: -30%; // Darken by 0%
 // $topbar-link-bg-hover: darken($topbar-bg, 3%);
 // $topbar-link-bg-active: darken($topbar-bg, 3%);
 
@@ -1280,10 +1280,10 @@ $total-columns: 16;
 // $topbar-menu-link-transform: uppercase;
 // $topbar-menu-link-font-size: emCalc(13);
 // $topbar-menu-link-weight: bold;
-// $topbar-menu-link-color: #fff;
-// $topbar-menu-icon-color: #fff;
-// $topbar-menu-link-color-toggled: #888;
-// $topbar-menu-icon-color-toggled: #888;
+$topbar-menu-link-color: $anchor-font-color;
+$topbar-menu-icon-color: $anchor-font-color;
+$topbar-menu-link-color-toggled: $primary-color;
+$topbar-menu-icon-color-toggled: $primary-color;
 
 // Transitions and breakpoint styles
 

@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>Devcorr</title>
         <link rel="stylesheet" type="text/css" href="./css/styles.css" />
         <script src="js/vendor/custom.modernizr.js"></script>
@@ -12,18 +12,25 @@
     <body>
         <!-- Header and Nav -->
 
-        <div class="row">
-            <div class="large-4 columns">
-                <h1><img src="http://placehold.it/400x100&text=Logo"></h1>
-            </div>
-            <div class="large-12 columns">
-                <ul class="button-group right">
-                    <li><a href="#" class="button">Link 1</a></li>
-                    <li><a href="#" class="button">Link 2</a></li>
-                    <li><a href="#" class="button">Link 3</a></li>
-                    <li><a href="#" class="button">Link 4</a></li>
+        <div class="fixed">
+            <nav class="top-bar">
+                <ul class="title-area">
+                    <li>
+                        <h1><img src="http://placehold.it/193x46&text=Logo"></h1>
+                    </li>
+                    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
                 </ul>
-            </div>
+                <section class="top-bar-section">
+                    <ul class="right">
+                        <li><a href="#">Link 1</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+                        <li><a href="#">Link 4</a></li>
+                        <li><a href="#">Link 5</a></li>
+                        <li><a href="#">Link 6</a></li>
+                    </ul>
+                </section>
+            </nav>
         </div>
 
         <!-- End Header and Nav -->
