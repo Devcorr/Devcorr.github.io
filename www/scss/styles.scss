@@ -44,6 +44,10 @@ h1 {
   text-align: center;
 }
 
+#primaryLogo {
+  margin-left: emCalc(20);
+}
+
 #mission {
   background-image: url("../images/mission.jpg");
 }
