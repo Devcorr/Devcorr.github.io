@@ -1,2 +1,37 @@
 @import "normalize";
 @import "foundation";
+
+.img-info-section {
+  color:white;
+  height:485px;
+
+  & > h2 {
+    color: white;
+  }
+}
+
+.info-section {
+  height:656px;
+}
+
+.info-section-title {
+  padding-top:110px;
+  padding-bottom:50px;
+  text-align: center;
+}
+
+.info-section-text {
+  text-align: center;
+}
+
+#mission {
+  background-image: url("../images/mission.jpg");
+}
+
+#contact {
+  background-image: url("../images/contact.jpg");
+}
+
+#clients {
+  background-image: url("../images/clients.jpg");
+}
