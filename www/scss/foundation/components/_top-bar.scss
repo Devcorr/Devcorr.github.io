@@ -272,13 +272,13 @@ $topbar-sticky-class: ".sticky" !default;
       }
 
       // Apply the hover link color when it has that class
-      &.hover > a {
+      &:hover a:not(.button) {
         background: $topbar-link-bg-hover;
         color: $topbar-link-color-hover;
       }
 
       // Apply the active link color when it has that class
-      &.active > a {
+      &:active a:not(.button) {
         background: $topbar-link-bg-active;
         color: $topbar-link-color-active;
       }
