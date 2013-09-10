@@ -72,6 +72,11 @@ address {
   text-align: center;
 }
 
+#primaryLogo {
+  margin-left: emCalc(5);
+  margin-top: emCalc(5);
+}
+
 #socialLinkCopyrightContainer {
   position: absolute;
   bottom: 0px;
