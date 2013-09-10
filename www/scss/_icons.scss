@@ -7,6 +7,12 @@
  */
 
 /* Generals */
+span[class*='icon-'],
+span[class*='icon-']:before,
+span[class*='icon-']:after {
+  box-sizing: content-box;
+}
+
 .icon {
 	/* don't change width and height in order to change the size of the icon,
 	you can control the size with font-size for different class(es) - below */
