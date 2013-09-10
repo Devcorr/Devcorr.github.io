@@ -36,14 +36,6 @@ address {
   & > h2 {
     color:white;
   }
-
-  a {
-    color: white;
-  }
-
-  a:hover {
-    color: $primary-color;
-  }
 }
 
 .info-section {
@@ -58,14 +50,6 @@ address {
 
 .info-section-text {
   text-align: center;
-
-  a {
-    color: white;
-  }
-
-  a:hover {
-    color: $primary-color;
-  }
 }
 
 .info-subsection-title {
@@ -92,14 +76,19 @@ address {
 
 #contact {
   background-image: url("../images/contact.jpg");
-
   position: relative;
+  padding-top: 15px;
+
+  a {
+    color:#fff;
+    &:hover {
+      color:$primary-color;
+    }
+  }
 
   @media #{$small} {
     padding-top: 80px;
   }
-
-  padding-top: 15px;
 }
 
 #clients {
