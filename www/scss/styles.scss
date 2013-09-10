@@ -2,6 +2,7 @@
 @import "foundation";
 @import "social_foundicons";
 @import "icons";
+@import "general_foundicons";
 
 .top-bar {
   max-width: 960px;
@@ -44,10 +45,19 @@ h1 {
 
 .info-section-text {
   text-align: center;
+
+  a {
+    color: white;
+  }
 }
 
-.info-subsection-title {
-  text-align: center;
+#socialLinkCopyrightContainer {
+  position: absolute;
+  bottom: 0px;
+
+  .socialLink {
+    padding: 0 10px 0 10px;
+  }
 }
 
 #mission {
@@ -56,6 +66,14 @@ h1 {
 
 #contact {
   background-image: url("../images/contact.jpg");
+
+  position: relative;
+
+  @media #{$small} {
+    padding-top: 80px;
+  }
+
+  padding-top: 15px;
 }
 
 #clients {

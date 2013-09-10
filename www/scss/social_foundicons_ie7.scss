@@ -1,8 +1,8 @@
 @import "foundation/variables";
 
 /* general icons for IE7 */
-[class*="#{$classPrefix}"] {
-  font-family: $fontName;
+[class*="social #{$classPrefix}"] {
+  font-family: SocialFoundicons;
   font-weight: normal;
   font-style: normal;
 }

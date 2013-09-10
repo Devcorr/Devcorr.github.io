@@ -1,10 +1,10 @@
 @import "foundation/variables";
 
 /* font-face */
-@include face;
+@include face("../fonts/social_foundicons", "SocialFoundicons");
 
 /* global foundicon styles */
-[class*="#{$classPrefix}"] {
+[class*="social #{$classPrefix}"] {
   display: inline;
   width: auto;
   height: auto;
@@ -14,8 +14,8 @@
   background-position: 0 0;
   background-repeat: repeat;
 }
-[class*="#{$classPrefix}"]:before {
-  font-family: $fontName;
+[class*="social #{$classPrefix}"]:before {
+  font-family: SocialFoundicons;
   font-weight: normal;
   font-style: normal;
   text-decoration: inherit;

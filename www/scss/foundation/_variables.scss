@@ -1300,8 +1300,6 @@ $topbar-menu-icon-color-toggled: $primary-color;
 
 // $topbar-sticky-class: ".sticky";
 
-$fontFileName: "../fonts/social_foundicons";
-$fontName: "SocialFoundicons";
 $classPrefix: "foundicon-";
 
 @mixin i-class($name,$pua) {
@@ -1316,7 +1314,7 @@ $classPrefix: "foundicon-";
   }
 }
 
-@mixin face {
+@mixin face ($fontFileName, $fontName) {
   @font-face {
     font-family: $fontName;
     src: url('#{$fontFileName}.eot');
