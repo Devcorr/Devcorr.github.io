@@ -26,7 +26,8 @@ h1 {
 
 .img-info-section {
   color:white;
-  height:485px;
+  min-height:485px;
+  background-position: center;
 
   & > h2 {
     color: white;
@@ -34,7 +35,7 @@ h1 {
 }
 
 .info-section {
-  height:656px;
+  min-height:656px;
 }
 
 .info-section-title {
