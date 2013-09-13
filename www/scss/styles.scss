@@ -80,10 +80,26 @@ address {
 
 #mission {
   background-image: url("../images/mission.jpg");
+
+  .info-section-title {
+    padding-top: 65px;
+  }
 }
 
-#about img {
-  max-width: 80%;
+#about {
+  img  {
+    max-width: 80%;
+  }
+
+  div {
+    padding-bottom: emCalc(20);
+  }
+}
+
+#services {
+  div {
+    padding-bottom: emCalc(20);
+  }
 }
 
 #contact {
@@ -108,7 +124,26 @@ address {
     padding-top: 80px;
   }
 
-  #about img {
-    max-width: 100%;
+  #about {
+    img {
+      max-width: 100%;
+    }
+
+    div {
+      padding-bottom: 0;
+    }
   }
+
+  #services {
+    div {
+      padding-bottom: 0;
+    }
+  }
+
+  #mission {
+    .info-section-title {
+      padding-top: 90px;
+    }
+  }
+
 }
