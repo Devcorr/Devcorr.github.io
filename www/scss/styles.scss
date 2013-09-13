@@ -74,6 +74,10 @@ address {
   background-image: url("../images/mission.jpg");
 }
 
+#about img {
+  max-width: 80%;
+}
+
 #contact {
   background-image: url("../images/contact.jpg");
   position: relative;
@@ -85,12 +89,18 @@ address {
       color:$primary-color;
     }
   }
-
-  @media #{$small} {
-    padding-top: 80px;
-  }
 }
 
 #clients {
   background-image: url("../images/clients.jpg");
+}
+
+@media #{$small} {
+  #contact{
+    padding-top: 80px;
+  }
+
+  #about img {
+    max-width: 100%;
+  }
 }
