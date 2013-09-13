@@ -37,15 +37,22 @@ address {
   & > h2 {
     color:white;
   }
+
+  .info-section-title {
+    padding-bottom:35px;
+  }
 }
 
 .info-section {
   min-height:656px;
+
+  .info-section-title {
+    padding-bottom:50px;
+  }
 }
 
 .info-section-title {
   padding-top:90px;
-  padding-bottom:50px;
   text-align: center;
 }
 
