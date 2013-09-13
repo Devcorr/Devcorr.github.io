@@ -455,7 +455,7 @@ span[class*='icon-']:after {
 	height: .75em;
 	border-width: .125em .0625em;
 	border-style: solid;
-	border-color: rgb(102, 102, 102); /* #666 */
+	border-color: $primary-color; /* #666 */
 	background-color: rgb(249, 249, 249); /* #f9f9f9 */
 	/* for browsers that supports */
 	border-radius: .0625em;
@@ -554,7 +554,7 @@ span[class*='icon-']:after {
 	left: 0;
 	width: 1em;
 	height: .25em;
-	background-color: rgb(102, 102, 102);
+	background-color: $primary-color;
 }
 .icon-tpl-full:after,
 .icon-tpl-side-r:before,
@@ -565,7 +565,7 @@ span[class*='icon-']:after {
 	position: absolute;
 	top: .3125em;
 	height: .6875em;
-	background-color: rgb(102, 102, 102);
+	background-color: $primary-color;
 }
 .icon-tpl-full:after,
 .icon-tpl-side-r:before,
@@ -807,7 +807,7 @@ span[class*='icon-']:after {
 	width: .3125em;
 	border-width: 0 .1875em;
 	border-style: solid;
-	border-color: rgb(102, 102, 102); /* #666 */
+	border-color: $primary-color; /* #666 */
 }
 .icon-stats {
 	top: 0;
@@ -827,7 +827,7 @@ span[class*='icon-']:after {
 	left: -.1875em;
 	width: 1em;
 	height: .125em;
-	background-color: rgb(102, 102, 102); /* #666 */
+	background-color: $primary-color; /* #666 */
 }
 
 /* Battery */
