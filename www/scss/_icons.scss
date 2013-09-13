@@ -11,6 +11,8 @@ span[class*='icon-'],
 span[class*='icon-']:before,
 span[class*='icon-']:after {
   box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
 }
 
 .icon {
