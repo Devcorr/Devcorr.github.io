@@ -1,0 +1,11 @@
+---
+- name: install gulp-imagemin
+  command: npm install gulp-imagemin
+- name: install gulp-sass
+  command: npm install gulp-sass
+- name: install gulp-git
+  command: npm install gulp-git
+- name: install gulp-closure-compiler
+  command: npm install gulp-closure-compiler
+- name: deploy via gulp  
+  command: gulp
