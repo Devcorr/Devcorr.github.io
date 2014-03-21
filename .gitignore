@@ -2,5 +2,5 @@
 /.idea
 *.swp
 .DS_Store
-.vagrant
-.sass-cache
+/.vagrant
+/.sass-cache
