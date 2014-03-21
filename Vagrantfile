@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "precise32"
+  config.vm.box = "precise64"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -52,7 +52,7 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with Ansible
   config.vm.provision :ansible do |ansible|
     ansible.playbook = "ansible/vagrant.yml"
-    ansible.inventory_file = "ansible/local"
+    ansible.inventory_path = "ansible/local"
   end
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
