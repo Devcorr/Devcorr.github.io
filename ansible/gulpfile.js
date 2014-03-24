@@ -45,9 +45,8 @@ gulp.task('github-deployment', shell.task([
 	'git stash',
 	'git checkout master',
 	'git stash pop',
-	'git add --all',
-	'now=date',
-	'git commit -m "deployment executed $now"',
+	'git add --all',	
+	'git commit -m /"deployment executed/"',
 	'git push origin master',
 	'git checkout dev',
 	'git stash clear'
