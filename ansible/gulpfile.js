@@ -40,15 +40,36 @@ gulp.task('compress-css', ['compile-sass'], function() {
 		.pipe(gulp.dest(paths.css));
 });
 
-gulp.task('github-deployment', shell.task([
-	'git status',
-	'git stash',
-	'git checkout master',
-	'git stash pop',
-	'git add --all',	
+
+gulp.task('stash', shell.task([
+	'git stash'
+]));
+
+gulp.task('checkout-master', ['stash'], shell.task([
+	'git checkout master'
+]));
+
+gulp.task('apply-changes', ['checkout-master'], shell.task([
+	'git stash pop'
+]));
+
+gulp.task('add-changes', ['apply-changes'], shell.task([
+	'git add --all'
+]));
+
+gulp.task('commit', ['add-changes'], shell.task([
 	'git commit -m /"deployment executed/"',
+]));
+
+gulp.task('push-master', ['commit'], shell.task([
 	'git push origin master',
+]));
+
+gulp.task('checkout-dev', ['push-master'], shell.task([
 	'git checkout dev',
+]));
+
+gulp.task('clear-stash', ['checkout-dev'], shell.task([
 	'git stash clear'
 ]));
 
