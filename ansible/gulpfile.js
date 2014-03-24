@@ -7,7 +7,7 @@ var shell = require('gulp-shell');
 var closureCompiler = require('gulp-closure-compiler');
 var minifyCSS = require('gulp-minify-css');
 
-var projectRoot = '../www/';
+var projectRoot = '../';
 var paths = {
 	scripts: projectRoot + 'js/**/*',
 	scss: projectRoot + 'scss/',
