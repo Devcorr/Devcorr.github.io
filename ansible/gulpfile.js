@@ -40,8 +40,17 @@ gulp.task('compress-css', ['compile-sass'], function() {
 		.pipe(gulp.dest(paths.css));
 });
 
-gulp.task('git-status', ['compress-scripts','optimize-images','compile-sass', 'compress-css'], shell.task([
-	'git status'
+gulp.task('github-deployment', ['compress-scripts','optimize-images','compile-sass', 'compress-css'], shell.task([
+	'git status',
+	'git stash',
+	'git checkout master',
+	'git stash pop',
+	'git add -f --all',
+	'now=date',
+	'git commit -m "deployment executed $now"',
+	'git push origin master',
+	'git checkout dev',
+	'git stash clear'
 ]));
 
 gulp.task('default', ['compress-scripts','optimize-images','compile-sass', 'compress-css']);
