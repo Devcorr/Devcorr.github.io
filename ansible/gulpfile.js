@@ -16,6 +16,12 @@ var paths = {
 	images: projectRoot + 'images/'
 };
 
+var now = new Date();
+var day = now.getDate();
+var month = now.getMonth() + 1;
+var year = now.getFullYear();
+today = month+'/'+day+'/'+year;
+
 gulp.task('prepare-for-github', shell.task([
 	'git branch -f master dev',
 	'git checkout master',
@@ -46,12 +52,7 @@ gulp.task('compress-css', ['compile-sass'], function() {
 		.pipe(gulp.dest(paths.css));
 });
 
-gulp.task('deploy-to-github', ['compress-scripts','optimize-images','compress-css'], shell.task([
-	var now = new Date();
-	var day = now.getDate();
-	var month = now.getMonth() + 1;
-	var year = now.getFullYear();
-	today = month+'/'+day+'/'+year;
+gulp.task('deploy-to-github', ['compress-scripts','optimize-images','compress-css'], shell.task([	
 	'cp ' + projectRoot + 'index.html ../index.html && cp ' + projectRoot + 'robots.txt ../robots.txt',
 	"find " + paths.scripts + " -type f -not -name '*-ck.js' -and -not -name 'custom.modernizr.js' | xargs rm",
 	'cp -R ' + projectRoot + 'js/ ../js',
