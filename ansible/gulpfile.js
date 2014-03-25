@@ -16,23 +16,25 @@ var paths = {
 	images: projectRoot + 'images/'
 };
 
-gulp.task(['update-dev-branch'], shell.task([
-	'git pull'
+gulp.task('prepare-for-github', shell.task([
+	'git branch -f master dev',
+	'git checkout master',
+	'git reset --hard dev',
 ]));
 
-gulp.task('compress-scripts', ['update-dev-branch'], function() {
+gulp.task('compress-scripts', ['prepare-for-github'], function() {
 	return gulp.src([paths.scripts + '*-ck.js', paths.scripts + 'custom.modernizr.js'])
 		.pipe(closureCompiler({language_in: 'ECMASCRIPT5_STRICT'}))
 		.pipe(gulp.dest(projectRoot+'js'));
 });
 
-gulp.task('optimize-images', ['update-dev-branch'], function() {
+gulp.task('optimize-images',['prepare-for-github'], function() {
 	return gulp.src(paths.images + '*.png')
 		.pipe(imagemin({optimizationLevel: 5}))
 		.pipe(gulp.dest(paths.images));
 });
 
-gulp.task('compile-sass', ['update-dev-branch'], function() {
+gulp.task('compile-sass',['prepare-for-github'], function() {
 	return gulp.src(paths.scss + '*.scss')
 		.pipe(sass())
 		.pipe(gulp.dest(paths.css));
@@ -44,19 +46,19 @@ gulp.task('compress-css', ['compile-sass'], function() {
 		.pipe(gulp.dest(paths.css));
 });
 
-gulp.task('deploy-to-github', ['update-dev-branch','compress-scripts','optimize-images','compress-css'], shell.task([
-	'git commit -m "deploying to github pages"',
-	'git push origin dev',
-	'git checkout master',
-	'git reset --hard dev',
+gulp.task('deploy-to-github', ['compress-scripts','optimize-images','compress-css'], shell.task([
 	'cp ' + projectRoot + 'index.html ../index.html && cp ' + projectRoot + 'robots.txt ../robots.txt',
 	"find " + paths.scripts + " -type f -not -name '*-ck.js' -and -not -name 'custom.modernizr.js' | xargs rm",
-	'cp ' + paths.scripts + '../js',
-	'cp ' + paths.css + '../css',
-	'cp ' + paths.fonts + '../fonts',
-	'cp ' + paths.images + '../images',
-	'rm -rf ../ansible ../www',
-	'rm tumblr.html Vagrantfile'
+	'cp -R ' + projectRoot + 'js/ ../js',
+	'cp -R ' + paths.css + ' ../css',
+	'cp -R ' + paths.fonts + ' ../fonts',
+	'cp -R ' + paths.images + ' ../images',
+	'rm ../tumblr.html ../Vagrantfile',
+	'rm -rf ' + projectRoot,
+	'git update-index --remove ../ansible/*',
+	'now=date',
+	'git commit -a -m "deploying to github pages $now"',
+	'git push -f origin master'
 ]));
 
 gulp.task('default', ['deploy-to-github']);
