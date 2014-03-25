@@ -63,7 +63,7 @@ gulp.task('deploy-to-github', ['compress-scripts','optimize-images','compress-cs
 	'rm -rf ' + projectRoot,
 	'find ../ansible/ -type f | xargs git update-index --assume-unchanged',
 	'git add --all',
-	"git commit -m 'deploying to github pages " + today "'",
+	"git commit -m 'deploying to github pages " + today + "'",
 	'git push -f origin master'
 ]));
 
