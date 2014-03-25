@@ -47,6 +47,11 @@ gulp.task('compress-css', ['compile-sass'], function() {
 });
 
 gulp.task('deploy-to-github', ['compress-scripts','optimize-images','compress-css'], shell.task([
+	var now = new Date();
+	var day = now.getDate();
+	var month = now.getMonth() + 1;
+	var year = now.getFullYear();
+	today = month+'/'+day+'/'+year;
 	'cp ' + projectRoot + 'index.html ../index.html && cp ' + projectRoot + 'robots.txt ../robots.txt',
 	"find " + paths.scripts + " -type f -not -name '*-ck.js' -and -not -name 'custom.modernizr.js' | xargs rm",
 	'cp -R ' + projectRoot + 'js/ ../js',
@@ -55,9 +60,9 @@ gulp.task('deploy-to-github', ['compress-scripts','optimize-images','compress-cs
 	'cp -R ' + paths.images + ' ../images',
 	'rm ../tumblr.html ../Vagrantfile',
 	'rm -rf ' + projectRoot,
-	'find ../ansible/ -type f | xargs git update-index --remove',
-	'now=date',
-	'git commit -a -m "deploying to github pages $now"',
+	'find ../ansible/ -type f | xargs git update-index --assume-unchanged',
+	'git add --all',
+	"git commit -m 'deploying to github pages " + today "'",
 	'git push -f origin master'
 ]));
 
