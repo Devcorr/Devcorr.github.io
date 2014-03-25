@@ -55,7 +55,7 @@ gulp.task('deploy-to-github', ['compress-scripts','optimize-images','compress-cs
 	'cp -R ' + paths.images + ' ../images',
 	'rm ../tumblr.html ../Vagrantfile',
 	'rm -rf ' + projectRoot,
-	'git update-index --remove ../ansible/*',
+	'git update-index --remove ../ansible/**/*',
 	'now=date',
 	'git commit -a -m "deploying to github pages $now"',
 	'git push -f origin master'
