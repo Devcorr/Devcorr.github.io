@@ -56,6 +56,7 @@ gulp.task('compress-css', ['compile-sass'], function() {
 });
 
 gulp.task('deploy-to-github', ['compress-scripts','optimize-images','compress-css'], shell.task([	
+	'cp ' + projectRoot + 'CNAME ../CNAME',
 	'cp ' + projectRoot + 'index.html ../index.html && cp ' + projectRoot + 'robots.txt ../robots.txt',
 	"find " + paths.scripts + " -type f -not -name '*-ck.js' -and -not -name 'custom.modernizr.js' | xargs rm",
 	'cp -R ' + projectRoot + 'js/ ../js',
