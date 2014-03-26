@@ -20,7 +20,10 @@ var now = new Date();
 var day = now.getDate();
 var month = now.getMonth() + 1;
 var year = now.getFullYear();
-today = month+'/'+day+'/'+year;
+var hours = now.getHours();
+var minutes = now.getMinutes();
+if (minutes < 10) { minutes = '0'+minutes; }
+today = month+'/'+day+'/'+year+':'+hours+':'+minutes;
 
 gulp.task('prepare-for-github', shell.task([
 	'git branch -f master dev',
