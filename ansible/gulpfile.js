@@ -61,10 +61,11 @@ gulp.task('deploy-to-github', ['compress-scripts','optimize-images','compress-cs
 	'cp -R ' + paths.images + ' ../images',
 	'rm ../tumblr.html ../Vagrantfile',
 	'rm -rf ' + projectRoot,
-	'find ../ansible/ -type f | xargs git update-index --assume-unchanged',
 	'git add --all :/',
+	'git rm -r --cached ../ansible/',
 	"git commit -m 'deploying to github pages " + today + "'",
-	'git push -f origin master'
+	'git push -f origin master',
+	'git checkout -f dev'
 ]));
 
 gulp.task('default', ['deploy-to-github']);
