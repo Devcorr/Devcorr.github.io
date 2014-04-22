@@ -8,6 +8,7 @@ var closureCompiler = require('gulp-closure-compiler');
 var minifyCSS = require('gulp-minify-css');
 
 var projectRoot = '../www/';
+var closureCompilerPath = 'roles/github/files/';
 var paths = {
 	scripts: projectRoot + 'js/**/*',
 	scss: projectRoot + 'scss/',
@@ -33,7 +34,11 @@ gulp.task('prepare-for-github', shell.task([
 
 gulp.task('compress-scripts', ['prepare-for-github'], function() {
 	return gulp.src([paths.scripts + '*-ck.js', paths.scripts + 'custom.modernizr.js'])
-		.pipe(closureCompiler({language_in: 'ECMASCRIPT5_STRICT'}))
+		.pipe(closureCompiler({
+			language_in: 'ECMASCRIPT5_STRICT',
+			compilerPath: closureCompilerPath + 'compiler.jar',
+			fileName: ''
+		}))
 		.pipe(gulp.dest(projectRoot+'js'));
 });
 
