@@ -35,9 +35,9 @@ gulp.task('prepare-for-github', shell.task([
 gulp.task('compress-scripts', ['prepare-for-github'], function() {
 	return gulp.src([paths.scripts + '*-ck.js', paths.scripts + 'custom.modernizr.js'])
 		.pipe(closureCompiler({
-			language_in: 'ECMASCRIPT5_STRICT',
 			compilerPath: closureCompilerPath + 'compiler.jar',
-			fileName: ''
+			fileName: '',
+			compilerFlags: {language_in: 'ECMASCRIPT5_STRICT'}
 		}))
 		.pipe(gulp.dest(projectRoot+'js'));
 });
