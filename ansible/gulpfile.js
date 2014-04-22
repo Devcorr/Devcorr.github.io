@@ -44,7 +44,7 @@ gulp.task('compress-scripts', ['prepare-for-github'], function() {
 
 gulp.task('optimize-images',['prepare-for-github'], function() {
 	return gulp.src(paths.images + '*.png')
-		.pipe(imagemin({optimizationLevel: 5}))
+		.pipe(imagemin())
 		.pipe(gulp.dest(paths.images));
 });
 
