@@ -6,7 +6,7 @@
 - name: install gulp-shell
   command: npm install gulp-shell
 - name: install gulp-closure-compiler
-  command: npm install gulp-closure-compiler
+  command: npm install gulp-uglify
 - name: install gulp-minify-css
   command: npm install gulp-minify-css  
 - name: deploy via gulp  

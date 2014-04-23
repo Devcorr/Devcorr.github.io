@@ -4,11 +4,10 @@ var gulp = require('gulp');
 var imagemin = require('gulp-imagemin');	
 var sass = require('gulp-sass');
 var shell = require('gulp-shell');
-var closureCompiler = require('gulp-closure-compiler');
+var uglify = require('gulp-uglify');
 var minifyCSS = require('gulp-minify-css');
 
 var projectRoot = '../www/';
-var closureCompilerPath = 'roles/github/files/';
 var paths = {
 	scripts: projectRoot + 'js/**/*',
 	scss: projectRoot + 'scss/',
@@ -34,11 +33,7 @@ gulp.task('prepare-for-github', shell.task([
 
 gulp.task('compress-scripts', ['prepare-for-github'], function() {
 	return gulp.src([paths.scripts + '*-ck.js', paths.scripts + 'custom.modernizr.js'])
-		.pipe(closureCompiler({
-			compilerPath: closureCompilerPath + 'compiler.jar',
-			fileName: 'build.js',
-			compilerFlags: {language_in: 'ECMASCRIPT5_STRICT'}
-		}))
+		.pipe(uglify())
 		.pipe(gulp.dest(projectRoot+'js'));
 });
 
