@@ -63,7 +63,7 @@ gulp.task('deploy-to-github', ['compress-scripts','optimize-images','compress-cs
 	'cp -R ' + paths.css + ' ../css',
 	'cp -R ' + paths.fonts + ' ../fonts',
 	'cp -R ' + paths.images + ' ../images',
-	'rm ../tumblr.html ../Vagrantfile',
+	'rm ../tumblr.html ../Vagrantfile ../README.md',
 	'rm -rf ' + projectRoot,
 	'git add --all :/',
 	'git rm -r --cached ../ansible/',
