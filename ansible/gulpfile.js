@@ -37,6 +37,12 @@ gulp.task('compress-scripts', ['prepare-for-github'], function() {
 		.pipe(gulp.dest(projectRoot+'js'));
 });
 
+gulp.task('optimize-images',['prepare-for-github'], function() {
+	return gulp.src(paths.images + '*.png')
+		.pipe(imagemin({ optimizationLevel: 3 }))
+		.pipe(gulp.dest(paths.images));
+});
+
 gulp.task('compile-sass',['prepare-for-github'], function() {
 	return gulp.src(paths.scss + '*.scss')
 		.pipe(sass())
@@ -49,7 +55,7 @@ gulp.task('compress-css', ['compile-sass'], function() {
 		.pipe(gulp.dest(paths.css));
 });
 
-gulp.task('deploy-to-github', ['compress-scripts','compress-css'], shell.task([	
+gulp.task('deploy-to-github', ['compress-scripts','optimize-images','compress-css'], shell.task([	
 	'cp ' + projectRoot + 'CNAME ../CNAME',
 	'cp ' + projectRoot + 'index.html ../index.html && cp ' + projectRoot + 'robots.txt ../robots.txt',
 	"find " + paths.scripts + " -type f -not -name '*-ck.js' -and -not -name 'custom.modernizr.js' | xargs rm",
