@@ -1,4 +1,5 @@
 @import "normalize";
+@import "foundation/settings";
 @import "foundation";
 @import "font-icons";
 
@@ -14,6 +15,10 @@
   &.expanded {
     background: $topbar-dropdown-bg;
     position: fixed;
+  }
+
+  .toggle-topbar.menu-icon a {
+    padding-right: 0;
   }
 }
 
@@ -64,7 +69,6 @@ address {
 
 #primaryLogo {
   margin-left: emCalc(5);
-  margin-top: emCalc(5);
 }
 
 #socialLinkCopyrightContainer {
@@ -80,7 +84,7 @@ address {
   background-image: url("../images/mission.jpg");
 
   .info-section-title {
-    padding-top: 65px;
+    padding-top: 80px;
   }
 }
 
