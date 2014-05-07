@@ -7397,6 +7397,8 @@ address {
 
 .info-subsection-title {
   text-align: center; }
+  .info-subsection-title > h5 {
+    font-weight: bold; }
 
 #primaryLogo {
   margin-left: 0.3125rem; }
@@ -7410,7 +7412,7 @@ address {
 #mission {
   background-image: url("../images/mission.jpg"); }
   #mission .info-section-title {
-    padding-top: 80px; }
+    padding-top: 100px; }
 
 #about img {
   max-width: 80%; }

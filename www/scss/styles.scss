@@ -65,6 +65,10 @@ address {
 
 .info-subsection-title {
   text-align: center;
+
+  & > h5 {
+    font-weight: bold;
+  }
 }
 
 #primaryLogo {
@@ -84,7 +88,7 @@ address {
   background-image: url("../images/mission.jpg");
 
   .info-section-title {
-    padding-top: 80px;
+    padding-top: 100px;
   }
 }
 
