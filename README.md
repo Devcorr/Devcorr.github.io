@@ -11,5 +11,6 @@
 		Commit your changes to the &quot;dev&quot; branch.
 		Then run the ansible tasks to deploy your changes live to github pages!
 	</p>
+	<code>cd ansible</code>
 	<code>ansible-playbook -i local githubPages.yml</code>
 </p>
