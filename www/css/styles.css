@@ -7365,6 +7365,8 @@ th.hide-for-touch {
     position: fixed; }
   .top-bar .toggle-topbar.menu-icon a {
     padding-right: 0; }
+  .top-bar .toggle-topbar.menu-icon:hover a span {
+    box-shadow: none; }
 
 h1 {
   line-height: 1.6;
