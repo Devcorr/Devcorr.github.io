@@ -7405,6 +7405,12 @@ address {
 #primaryLogo {
   margin-left: 0.3125rem; }
 
+#reactiveRibbon img {
+  border: 0;
+  position: absolute;
+  top: 4.25em;
+  z-index: 10; }
+
 #socialLinkCopyrightContainer {
   position: absolute;
   bottom: 0px; }
