@@ -1,0 +1,23 @@
+{
+  "name": "devcorr.github.io",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">\r \t<a href=\"http://devcorr.com\">\r \t\t<img src=\"http://devcorr.com/images/logo.png\"/>\r \t</a>\r </p>\r <p align=\"center\">\r \t<h2 align=\"center\">As a devcorr developer, here is how to deploy updates to devcorr.com!</h2>\r \t<p>\r \t\tCheckout or clone the &quot;dev&quot; branch of this repository and make sure it is up to date.\r \t\tMake your changes and check them locally by firing up the vagrant machine here.\r \t\tCommit your changes to the &quot;dev&quot; branch.\r \t\tThen run the ansible tasks to deploy your changes live to github pages!\r \t</p>\r \t<code>cd ansible</code>\r \t<code>ansible-playbook -i local githubPages.yml</code>\r </p>",
+  "main": "index.html",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Devcorr/Devcorr.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Devcorr/Devcorr.github.io/issues"
+  },
+  "homepage": "https://github.com/Devcorr/Devcorr.github.io#readme"
+}
