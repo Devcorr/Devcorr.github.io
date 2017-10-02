@@ -56,7 +56,7 @@ gulp.task('compress-css', ['compile-sass'], function() {
 });
 
 gulp.task('deploy-to-github', ['compress-scripts','compress-css'], shell.task([
-	'cp ' + projectRoot + 'CNAME ../CNAME',
+	//'cp ' + projectRoot + 'CNAME ../CNAME',
 	'cp ' + projectRoot + 'index.html ../index.html && cp ' + projectRoot + 'robots.txt ../robots.txt',
 	'cp -R ' + projectRoot + 'js/ ../js',
 	'cp -R ' + paths.css + ' ../css',
